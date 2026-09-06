@@ -26,7 +26,7 @@ export default function Lesson2Page() {
 
         <div className="mt-10">
              <VideoPlayer
-                 videoSrc="/M1100/chapter-02/lesson-02.mp4"
+                 videoSrc="https://youtu.be/_GER_-f3x60"
                  title="Lesson 2 part 1 —Application Injective Surjective et Bijective "
              />
         </div>
@@ -50,7 +50,7 @@ export default function Lesson2Page() {
 
         <div className="mt-10">
              <VideoPlayer
-                 videoSrc="/M1100/chapter-02/lesson-03.mp4"
+                 videoSrc="https://youtu.be/ncKx_TgbrZQ"
                  title="Lesson 2 part 2—Application Injective Surjective et Bijective "
              />
         </div>

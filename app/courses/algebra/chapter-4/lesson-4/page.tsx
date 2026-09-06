@@ -29,7 +29,7 @@ export default function Lesson4Page() {
         {/* Video */}
         <div className="mt-10">
                <VideoPlayer
-                   videoSrc="/M1100/chapter-04/lesson-05.mp4"
+                   videoSrc="https://youtu.be/yt8nUWeCe4s"
                    title="Lesson 4—Homomorphisme "
                />
           </div>

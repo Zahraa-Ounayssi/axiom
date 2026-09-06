@@ -26,7 +26,7 @@ export default function Lesson3Page() {
 
         <div className="mt-10">
               <VideoPlayer
-                  videoSrc="/M1100/chapter-02/lesson-04.mp4"
+                  videoSrc="https://youtu.be/yZ4rSvzwxHs"
                   title="Lesson 3— Application inversible "
               />
          </div>

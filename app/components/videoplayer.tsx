@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -17,13 +16,32 @@ export default function VideoPlayer({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const isYouTube = videoSrc.startsWith("youtube:");
+
+  const youtubeId = isYouTube
+    ? videoSrc.replace("youtube:", "")
+    : null;
+
   useEffect(() => {
     async function getVideoUrl() {
       setLoading(true);
       setError(null);
       setVideoUrl(null);
 
-      console.log("Video path:", videoSrc);
+      if (isYouTube) {
+        if (!youtubeId) {
+          setError("معرّف فيديو YouTube غير موجود.");
+          setLoading(false);
+          return;
+        }
+
+        setVideoUrl(
+          `https://www.youtube-nocookie.com/embed/${youtubeId}`
+        );
+
+        setLoading(false);
+        return;
+      }
 
       const { data, error } = await supabase.storage
         .from("course-videos")
@@ -31,24 +49,17 @@ export default function VideoPlayer({
 
       if (error) {
         console.error("Video URL error:", error);
-        console.error("Error message:", error.message);
-        console.error("Error name:", error.name);
-        console.error("Video path:", videoSrc);
-
         setError(`تعذر تحميل الفيديو: ${error.message}`);
         setLoading(false);
         return;
       }
-
-      console.log("Signed URL created successfully");
-      console.log("Signed URL:", data.signedUrl);
 
       setVideoUrl(data.signedUrl);
       setLoading(false);
     }
 
     getVideoUrl();
-  }, [videoSrc]);
+  }, [videoSrc, isYouTube, youtubeId]);
 
   return (
     <div className="w-full overflow-hidden rounded-xl bg-black">
@@ -64,15 +75,27 @@ export default function VideoPlayer({
         </div>
       )}
 
-      {videoUrl && (
+      {videoUrl && isYouTube && (
+        <div className="aspect-video w-full">
+          <iframe
+            className="h-full w-full"
+            src={videoUrl}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+      )}
+
+      {videoUrl && !isYouTube && (
         <video
           className="w-full"
           controls
           controlsList="nodownload"
           playsInline
           preload="metadata"
-          onError={(e) => {
-            console.error("Video playback error:", e);
+          onError={() => {
+            console.error("Video playback error");
             setError("تعذر تشغيل الفيديو.");
           }}
         >
@@ -87,4 +110,3 @@ export default function VideoPlayer({
     </div>
   );
 }
-

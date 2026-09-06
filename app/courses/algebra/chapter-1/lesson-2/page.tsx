@@ -29,7 +29,7 @@ export default function Lesson2Page() {
         {/* Video */}
          <div className="mt-10">
             <VideoPlayer
-                videoSrc="/M1100/chapter-01/lesson-02.mp4"
+                videoSrc="https://youtu.be/r05d-lsw6CI"
                title="Lesson 2 part 1— logique partie 2"
             />
         </div>
@@ -78,7 +78,7 @@ export default function Lesson2Page() {
         {/* Video */}
          <div className="mt-10">
             <VideoPlayer
-                videoSrc="/M1100/chapter-01/lesson-03.mp4"
+                videoSrc="https://youtu.be/UUuPHFxO4ns"
                title="Lesson 2 part 2— logique partie 2"
             />
         </div>

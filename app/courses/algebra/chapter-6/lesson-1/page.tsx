@@ -32,7 +32,7 @@ export default function Lesson1Page() {
        {/* Video */}
         <div className="mt-10">
                  <VideoPlayer
-                     videoSrc="/M1100/chapter-06/lesson-01.mp4"
+                     videoSrc="https://youtu.be/bc0FdlgphEw"
                      title="Lesson 1 part 1 —Revision d un nombre complexe "
                  />
             </div>
@@ -60,7 +60,7 @@ export default function Lesson1Page() {
         {/* Video */}
         <div className="mt-10">
                  <VideoPlayer
-                     videoSrc="/M1100/chapter-06/lesson-02.mp4"
+                     videoSrc="https://youtu.be/quN55yBoiEE"
                      title="Lesson 1 part 2—Revision d un nombre complexe "
                  />
             </div>

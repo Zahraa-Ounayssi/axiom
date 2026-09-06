@@ -31,7 +31,7 @@ export default function Lesson1Page() {
         {/* Video */}
         <div className="mt-10">
                <VideoPlayer
-                   videoSrc="/M1100/chapter-05/lesson-01.mp4"
+                   videoSrc="https://youtu.be/SQyxACBsIOA"
                    title="Lesson 1—Groupe part 1 "
                />
           </div>
