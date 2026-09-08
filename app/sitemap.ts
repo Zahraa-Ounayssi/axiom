@@ -7,8 +7,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
+    },
+    {
+      url: `${baseUrl}/login`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/register`,
+      lastModified: new Date(),
     },
   ];
 }
