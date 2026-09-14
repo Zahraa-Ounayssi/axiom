@@ -24,14 +24,14 @@ export default function Lesson1Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 1 — Introduction to Analysis
+          Lesson 1 — Valeur absolue
         </h1>
 
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-1/lesson-1.mp4"
-            title="Lesson 1 — Introduction to Analysis"
+            videoSrc="youtube:jdc6CVV74Ew"
+            title="Lesson 1 —Valeur absolue "
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson1Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Introduction to Analysis
+            Valeur absolue revision + exercices 1,2et3
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">

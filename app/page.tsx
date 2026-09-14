@@ -76,6 +76,96 @@ export default function Home() {
         </div>
       </section>
 
+
+
+<section className="mx-auto max-w-6xl px-6 py-20">
+  <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
+    <div className="px-6 py-12 text-center md:px-12 md:py-16">
+      <span className="mb-4 inline-block rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
+        Lebanese University • L1
+      </span>
+
+
+  <h2 className="mx-auto max-w-4xl text-3xl font-bold tracking-tight text-gray-900 md:text-5xl">
+    Your University Learning Platform
+  </h2>
+
+  <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-gray-600 md:text-lg">
+    AXIOM is an educational platform designed for first-year students
+    at the Lebanese University. It provides organized and accessible
+    learning resources for students studying Mathematics, Statistics,
+    and Computer Science.
+  </p>
+
+  <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-600 md:text-lg">
+    From university lectures and detailed video lessons to exercises,
+    applications, and solved exams, AXIOM helps students understand
+    their courses, strengthen their skills, and prepare effectively
+    for university examinations.
+  </p>
+
+  <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
+    <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 text-left">
+      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm">
+        🎓
+      </div>
+
+      <h3 className="text-lg font-semibold text-gray-900">
+        Lebanese University
+      </h3>
+
+      <p className="mt-2 text-sm leading-6 text-gray-600">
+        Learning resources created with the needs of Lebanese University
+        students in mind.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 text-left">
+      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm">
+        📚
+      </div>
+
+      <h3 className="text-lg font-semibold text-gray-900">
+        L1 Courses
+      </h3>
+
+      <p className="mt-2 text-sm leading-6 text-gray-600">
+        Courses and resources for first-year Mathematics, Statistics,
+        and Computer Science students.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 text-left">
+      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl shadow-sm">
+        📝
+      </div>
+
+      <h3 className="text-lg font-semibold text-gray-900">
+        Learn & Prepare
+      </h3>
+
+      <p className="mt-2 text-sm leading-6 text-gray-600">
+        Detailed lessons, educational videos, exercises, applications,
+        and solved exams to help you prepare with confidence.
+      </p>
+    </div>
+  </div>
+
+  <div className="mx-auto mt-12 max-w-4xl border-t border-gray-100 pt-8">
+    <p className="text-sm leading-7 text-gray-500">
+      AXIOM covers key first-year university subjects including
+      Algebra, Analysis, Mathematics, Statistics, and Computer Science,
+      with resources designed to support students throughout their
+      academic journey.
+    </p>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+
     {/* Statistics */}
 <section className="border-y border-slate-200 bg-white">
   <div className="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4">

@@ -24,14 +24,14 @@ export default function Lesson4Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 4 — Analysis Concepts
+          Lesson 4 — Application-3
         </h1>
 
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-6/lesson-4.mp4"
-            title="Lesson 4 — Analysis Concepts"
+            videoSrc="youtube:2T7MnG1hmTA"
+            title="Lesson 4 — Application-3"
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson4Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+           Application-3
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">

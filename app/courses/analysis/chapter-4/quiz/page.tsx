@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const questions = [
   {
-    question: "Question 1",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
-  },
-  {
-    question: "Question 2",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "Soit f(x)=x3−3x2+2. Sur quel intervalle \(f\) est-elle strictement décroissante ?",
+    options: ["]−∞,0[", "]0,2[", "]2,+∞[", "R"],
     correct: 1,
   },
   {
-    question: "Question 3",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 2,
+    question: "Soit f(x)= x**2 +1 sur x-1  Pour x different que 1 f'(x)=? ",
+    options: ["(x−1)2x2−2x+1​", "(x−1)2x2−2x−1​", "(x−1)2x2+2x-1", "2x/x-1"],
+    correct: 1,
   },
   {
-    question: "Question 4",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 3,
+    question: "Soit fx = x au carre applique le theoreme d acroissement fini sur[1;3] et determiner c",
+    options: ["c=1", "c= radical 5", "c=2", "c=3"],
+    correct: 1,
   },
   {
-    question: "Question 5",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
+    question: "Soit \(f\) dérivable sur un intervalle \(I\) et telle que f'(x)>=o, quelque soit x appartient I  On peut conclure que:",
+    options: ["f est strictement croissante sur \(I\).", ". \(f\) est croissante sur \(I\).", "f est strictement décroissante sur \(I\).", ". \(f\) est constante sur \(I\)."],
+    correct: 1,
+  },
+  {
+    question: "Soit \(f\) continue sur \([a,b]\), dérivable sur \(]a,b[\), avec f(a)=f(b) Quel theoreme permet d affirmer qu il existe c appartient ]a,b[tel que f'(c)=0?",
+    options: ["Théorème des valeurs intermédiaires.", "Théorème de Rolle.", "Théorème des accroissements finis uniquement", "Théorème de la bijection"],
+    correct: 1,
   },
 ];
 

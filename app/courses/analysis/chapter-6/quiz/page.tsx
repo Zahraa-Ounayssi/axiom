@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const questions = [
   {
-    question: "Question 1",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
-  },
-  {
-    question: "Question 2",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "x→0lim​x2ex−1−x​.",
+    options: ["0", "0.5", "1", "+∞"],
     correct: 1,
   },
   {
-    question: "Question 3",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 2,
-  },
-  {
-    question: "Question 4",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 3,
-  },
-  {
-    question: "Question 5",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "x→0lim​x3sinx−x​.",
+    options: ["−61​", "1/6", "-0.5", "0"],
     correct: 0,
+  },
+  {
+    question: "x→0lim​x3ln(1+x)−x+2x2​​.",
+    options: ["-1/3", "1/3", "0.5", "1"],
+    correct: 1,
+  },
+  {
+    question: "x→0lim​x3ex−1−x−2x2​​.",
+    options: ["1/6", "-1/6", "1/2", "1"],
+    correct: 0,
+  },
+  {
+    question: "x→0lim​x4cosx−1+2x2​​.",
+    options: ["-1/24", "1/24", "1/6", "0"],
+    correct: 1,
   },
 ];
 

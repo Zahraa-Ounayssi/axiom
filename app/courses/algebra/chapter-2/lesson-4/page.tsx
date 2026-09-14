@@ -26,7 +26,7 @@ export default function Lesson4Page() {
 
        <div className="mt-10">
              <VideoPlayer
-                 videoSrc="https://youtu.be/yZ4rSvzwxHs"
+                 videoSrc="youtube:yZ4rSvzwxHs"
                  title="Lesson 4— Exercices"
              />
         </div>

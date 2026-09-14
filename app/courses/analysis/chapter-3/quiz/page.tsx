@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const questions = [
   {
-    question: "Question 1",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "Soit \(f\) définie au voisinage de \(a\). La condition x→alim​f(x)=L  signifie, avec la définition \(\varepsilon\)-\(\delta\), que :",
+    options: ["Pour tout \(\varepsilon>0\), il existe \(\delta>0\) tel que ∣x−a∣<δ⇒∣f(x)−L∣<ε.  ", "AIl existe \(\varepsilon>0\) tel que, pour tout \(\delta>0\), ∣f(x)−L∣<ε.", "\(f(a)=L\) nécessairement.", "f(x)=L pour tout \(x\) proche de \(a\)."],
     correct: 0,
   },
   {
-    question: "Question 2",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "x→0lim​x1+x−1​.",
+    options: ["0", "0.5", "1", "+ infini"],
     correct: 1,
   },
   {
-    question: "Question 3",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 2,
-  },
-  {
-    question: "Question 4",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "f(x)=​x−2x2−4​,a,​x=2,x=2.​   ​pour quelle valeur de a f est continie en 2",
+    options: ["a=0", "a=1", "a=2", "a=4"],
     correct: 3,
   },
   {
-    question: "Question 5",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
+    question: "Soit fx= sinx sur x si x different que 0 et 0 si x=0 alors",
+    options: ["f est continue en 0", "f nest pas definie en 0 ", "f admet une limite infinie en 0", "f peut etre prolongee par continuite en posant f (0)=0"],
+    correct: 3,
+  },
+  {
+    question: "On sait que lim lorsque x tends vers a de fx =L app R mais f(a) different que L",
+    options: ["f est continue en a", "f n admet pas de limite en a ", "f n est pas continue en a mais peut etre prolonge par continuite en posant f(a)=L", "f est necessairement derivable en a"],
+    correct: 2,
   },
 ];
 

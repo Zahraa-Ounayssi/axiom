@@ -31,7 +31,7 @@ export default function Lesson2Page() {
         {/* Video */}
        <div className="mt-10">
                 <VideoPlayer
-                    videoSrc="https://youtu.be/9zMM9s_QHqc"
+                    videoSrc="youtube:9zMM9s_QHqc"
                     title="Lesson 2— Groupe part 2"
                 />
            </div>

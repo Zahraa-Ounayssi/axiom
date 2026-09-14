@@ -5,7 +5,6 @@ const lessons = [
   "Lesson 2",
   "Lesson 3",
   "Lesson 4",
-  "Lesson 5",
 ];
 
 export default function ChapterOnePage() {
@@ -18,7 +17,7 @@ export default function ChapterOnePage() {
           </p>
 
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">
-            Chapter 6
+            Chapter 6 Devellopement limite
           </h1>
 
           <p className="mt-4 max-w-2xl text-lg text-slate-300">

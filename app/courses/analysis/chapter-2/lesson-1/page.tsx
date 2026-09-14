@@ -24,14 +24,14 @@ export default function Lesson1Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 1 — Analysis Concepts
+          Lesson 1 — Suite geometrique
         </h1>
 
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-2/lesson-1.mp4"
-            title="Lesson 1 — Analysis Concepts"
+            videoSrc="youtube:RW8me_0icuM"
+            title="Lesson 1 —part 1  Suite geometrique"
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson1Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+            Suite geometrique definition et propriete
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">
@@ -51,6 +51,32 @@ export default function Lesson1Page() {
             through mathematical explanations and examples.
           </p>
         </div>
+
+        {/* Video */}
+        <div className="mt-10">
+          <VideoPlayer
+            videoSrc="youtube:wcdmsiVfzKw"
+            title="Lesson 1 —part 2  Suite geometrique"
+          />
+        </div>
+
+        {/* Description */}
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-7">
+          <p className="text-sm font-semibold text-blue-600">
+            Lesson 1
+          </p>
+
+          <h2 className="mt-2 text-2xl font-bold">
+            part 2  Suite geometrique des exemples sur la limite par definition
+          </h2>
+
+          <p className="mt-4 leading-7 text-slate-600">
+            In this lesson, you will learn the main concepts
+            introduced in Chapter 2 and develop your understanding
+            through mathematical explanations and examples.
+          </p>
+        </div>
+
 
         {/* Learning objectives */}
         <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-7">

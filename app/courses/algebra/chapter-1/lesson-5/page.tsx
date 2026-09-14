@@ -29,7 +29,7 @@ export default function Lesson5Page() {
         {/* Video */}
          <div className="mt-10">
             <VideoPlayer
-                 videoSrc="https://youtu.be/FTGllZSxn1w"
+                 videoSrc="youtube:FTGllZSxn1w"
                  title="Lesson 5 — Produit cartesienne"
             />
         </div>

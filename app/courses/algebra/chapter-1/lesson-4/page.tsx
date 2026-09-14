@@ -29,7 +29,7 @@ export default function Lesson4Page() {
         {/* Video */}
         <div className="mt-10">
             <VideoPlayer
-                videoSrc="https://youtu.be/nFBD96Pyp9U"
+                videoSrc="youtube:nFBD96Pyp9U"
                 title="Lesson 4 part 1 — Operation sur les ensembles"
              />
         </div>
@@ -53,7 +53,7 @@ export default function Lesson4Page() {
         {/* Video */}
         <div className="mt-10">
             <VideoPlayer
-                videoSrc="https://youtu.be/nlMoekFxVd0"
+                videoSrc="youtube:nlMoekFxVd0"
                 title="Lesson 4 part 2 — Operation sur les ensembles"
              />
         </div>

@@ -29,7 +29,7 @@ export default function Lesson3Page() {
         {/* Video */}
        <div className="mt-10">
               <VideoPlayer
-                  videoSrc="https://youtu.be/BO-R0Z5KmUw"
+                  videoSrc="youtube:BO-R0Z5KmUw"
                   title="Lesson 3— Loi induite "
               />
          </div>

@@ -24,14 +24,14 @@ export default function Lesson3Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 3 — Analysis Concepts
+          Lesson 3 — Theoreme de valeur intermediaire et application
         </h1>
 
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-3/lesson-3.mp4"
-            title="Lesson 3 — Analysis Concepts"
+            videoSrc="youtube:87_iuOzlHs"
+            title="Lesson 3 — Theoreme de valeur intermediaire et application"
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson3Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+           Theoreme de valeur intermediaire et application
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">

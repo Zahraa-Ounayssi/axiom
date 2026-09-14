@@ -30,8 +30,8 @@ export default function Lesson3Page() {
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-1/lesson-3.mp4"
-            title="Lesson 3 — Analysis Concepts"
+            videoSrc="youtube:mIllkhBmjE0"
+            title="Lesson 3 Borne superieur et Borne inferieur"
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson3Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+            Quelque definition sur sup inf min max minoront et majorant d un ensemble
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">

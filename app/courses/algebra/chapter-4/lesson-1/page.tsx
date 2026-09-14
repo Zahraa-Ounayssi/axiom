@@ -31,7 +31,7 @@ export default function Lesson1Page() {
         {/* Video */}
         <div className="mt-10">
               <VideoPlayer
-                  videoSrc="https://youtu.be/ev3-J1nlESk"
+                  videoSrc="youtube:ev3-J1nlESk"
                   title="Lesson 1part 1 — loi de composition interne "
               />
          </div>
@@ -58,7 +58,7 @@ export default function Lesson1Page() {
        {/* Video */}
         <div className="mt-10">
               <VideoPlayer
-                  videoSrc="https://youtu.be/QXc326UBQ9I"
+                  videoSrc="youtube:QXc326UBQ9I"
                   title="Lesson 1 part2— loi de composition interne "
               />
          </div>

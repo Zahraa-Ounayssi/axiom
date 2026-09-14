@@ -24,14 +24,14 @@ export default function Lesson5Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 5 — Analysis Concepts
+          Lesson 5 —Application
         </h1>
 
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-1/lesson-5.mp4"
-            title="Lesson 5 — Analysis Concepts"
+            videoSrc="youtube:EJb9Rj7wUY0"
+            title="Lesson 5 — Application sur Borne superieur et inferieur  et sur propriete d archimede"
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson5Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+             Application sur Borne superieur et inferieur  et sur propriete
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">

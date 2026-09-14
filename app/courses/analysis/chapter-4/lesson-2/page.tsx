@@ -24,14 +24,14 @@ export default function Lesson2Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 2 — Analysis Concepts
+          Lesson 2 — Apllication teoreme d accroissemet fini
         </h1>
 
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-4/lesson-2.mp4"
-            title="Lesson 2 — Analysis Concepts"
+            videoSrc="youtube:QNHvJ2Mkw-0"
+            title="Lesson 2 — Apllication teoreme d accroissemet fini"
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson2Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+           Apllication teoreme d accroissemet fini
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">

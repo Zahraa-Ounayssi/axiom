@@ -31,7 +31,7 @@ export default function Lesson2Page() {
         {/* Video */}
        <div className="mt-10">
                   <VideoPlayer
-                      videoSrc="https://youtu.be/PLQyHvLdWbI"
+                      videoSrc="youtube:PLQyHvLdWbI"
                       title="Lesson 2 part 1 Racine n eme d un nb complexe et resoudre equation de second degre dans C "
                   />
              </div>

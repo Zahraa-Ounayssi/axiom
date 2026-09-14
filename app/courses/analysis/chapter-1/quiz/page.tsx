@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const questions = [
   {
-    question: "Question 1",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
-  },
-  {
-    question: "Question 2",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "A={x∈R;∣2x−1∣≤x+2}.",
+    options: ["]−∞,3]", "[−31​,3]", "[−3,31​]", "[31​,+∞["],
     correct: 1,
   },
   {
-    question: "Question 3",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "E(-radical 5)+E(radical 5)",
+    options: ["-2", "-1", "0", "1"],
+    correct: 1,
+  },
+  {
+    question: "A={n/1+n​;n∈N, n≥2}",
+    options: ["infA=1/2et \(\sup A=1\), avec un minimum et un maximum", "Answer B", "Answer C", "Answer D"],
+    correct:1 ,
+  },
+  {
+    question: "Soit A⊂R, non vide et majorée. On sait que supA=3 Quelle proposition est nécessairement vraie",
+    options: ["3∈A.", "3 est le maximum de A", "Pour tout \(\varepsilon>0\), il existe \(x\in A\) tel que 3- epsilon <x≤3", "Pour tout \(x\in A\), on a \(x<3-\varepsilon\)."],
+    correct:2 ,
+  },
+  {
+    question: "Soit \(A\subset\mathbb R\), non vide et minorée. Laquelle des propositions suivantes est fausse ?",
+    options: ["inf A < ou = x pour tout \(x\in A\).", "Si \(\inf A\in A\), alors \(\inf A=\min A\).", "nfA appartient nécessairement à \(A\).", "Pour tout \(\varepsilon>0\), il existe \(x\in A\) tel que infA≤x<infA+ε."],
     correct: 2,
-  },
-  {
-    question: "Question 4",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 3,
-  },
-  {
-    question: "Question 5",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
   },
 ];
 

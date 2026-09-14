@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const questions = [
   {
-    question: "Question 1",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
-  },
-  {
-    question: "Question 2",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 1,
-  },
-  {
-    question: "Question 3",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "arcsin(sin65π​).",
+    options: ["65π​", "−6π​", "pi/6", "2pi/3"],
     correct: 2,
   },
   {
-    question: "Question 4",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 3,
+    question: "arccos(cos34π​).",
+    options: ["4π​/3", "2π​/3", "-2π​/3", "π​/3"],
+    correct: 1,
   },
   {
-    question: "Question 5",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
+    question: "arctan(tan65π​).",
+    options: ["5π​/6", "π​/6", "-π​/6", "2π​/3"],
+    correct: 2,
+  },
+  {
+    question: "Soit f(x)=ln(x**2-1) Quel est son domaine de definition et sa derivee ?",
+    options: ["Df​=R∖{−1,1},f′(x)=x2−12x​.", "Df​=]−1,1[,f′(x)=x2−12x​.", "Df​=]−∞,−1[∪]1,+∞[,f′(x)=x2−12x​.", "Df​=]−∞,1[,f′(x)=x2−12​."],
+    correct: 2,
+  },
+  {
+    question: "Laquelle des identités suivantes est correcte pour tout \(x\in\mathbb R\) ?",
+    options: ["cosh2x+sinh2x=1", "cosh2x−sinh2x=1", "sinh2x−cosh2x=1", "coshx−sinhx=1"],
+    correct: 1,
   },
 ];
 

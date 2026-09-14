@@ -18,7 +18,7 @@ export default function Page() {
           </p>
 
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">
-            Chapter 1
+            Chapter 1 Nb reel /Borne superieur et inferieur
           </h1>
 
           <p className="mt-4 max-w-2xl text-lg text-slate-300">

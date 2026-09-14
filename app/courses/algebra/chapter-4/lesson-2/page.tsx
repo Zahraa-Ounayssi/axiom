@@ -29,7 +29,7 @@ export default function Lesson2Page() {
         {/* Video */}
         <div className="mt-10">
                <VideoPlayer
-                   videoSrc="https://youtu.be/5OSj_Qx-6DY"
+                   videoSrc="youtube:5OSj_Qx-6DY"
                    title="Lesson 2— Exercices "
                />
           </div>

@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const questions = [
   {
-    question: "Question 1",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
-  },
-  {
-    question: "Question 2",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "Soit \((u_n)\) une suite arithmétique telle que u3=7 et u8=22 La valeur de u10 est :",
+    options: ["25", "28", "31", "34"],
     correct: 1,
   },
   {
-    question: "Question 3",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+    question: "Soit la suite définie par  u_0=1,\qquad u_{n+1}=2u_n+3. Quelle affirmation est correcte ?",
+    options: ["A(un)converge vers \(3\).", "(un) converge vers -3)", "(un)tends vers + infini ", "tends vers - infini"],
     correct: 2,
   },
   {
-    question: "Question 4",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 3,
+    question: "Soit \((u_n)\) une suite géométrique de raison positive telle que u2=12 et u5=96 Alors:",
+    options: ["q=2 et \(u_n=3\cdot2^n\).", "q=4 et \(u_n=\frac34\,4^n\).", "q=2 et \(u_n=6\cdot2^n\).", "\(q=4\) et \(u_n=3\cdot4^n\)"],
+    correct: 0,
   },
   {
-    question: "Question 5",
-    options: ["Answer A", "Answer B", "Answer C", "Answer D"],
-    correct: 0,
+    question: "On considere un​=n+23n−1​.",
+    options: ["n→+∞lim​un​=0", "n→+∞lim​un​=1", "n→+∞lim​un​=3", "n→+∞lim​un​=+∞"],
+    correct: 2,
+  },
+  {
+    question: "Soit un​=(−1)n. Quelle affirmation est correcte ? ",
+    options: ["lim un =1", "lim un = -1", "lim un = 0", "La suite n admets pas de limite"],
+    correct: 3,
   },
 ];
 

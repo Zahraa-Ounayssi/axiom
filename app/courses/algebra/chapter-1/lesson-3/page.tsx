@@ -29,7 +29,7 @@ export default function Lesson3Page() {
         {/* Video */}
         <div className="mt-10">
            <VideoPlayer
-              videoSrc="https://youtu.be/tjEvUT7SgAs"
+              videoSrc="youtube: tjEvUT7SgAs"
               title="Lesson 3 part 1 — Ensemble"
            />
         </div>
@@ -54,7 +54,7 @@ export default function Lesson3Page() {
         {/* Video */}
         <div className="mt-10">
            <VideoPlayer
-              videoSrc="https://youtu.be/KkfJbL4Baw8"
+              videoSrc="youtube:KkfJbL4Baw8"
               title="Lesson 3 part 2— Ensemble"
            />
         </div>

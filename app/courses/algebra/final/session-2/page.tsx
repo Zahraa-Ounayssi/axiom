@@ -31,13 +31,7 @@ export default function SessionPage() {
           </p>
         </div>
 
-        {/* Video */}
-               <div className="mt-10">
-                           <VideoPlayer
-                               videoSrc="/courses/videos/algebra/final/session-2/explanation.mp4"
-                               title="Session 2— "
-                           />
-                      </div>
+ 
 
         {/* Exam PDF */}
         <section className="mb-8 rounded-3xl bg-white p-6 shadow-sm">

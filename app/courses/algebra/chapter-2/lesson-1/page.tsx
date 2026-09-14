@@ -26,7 +26,7 @@ export default function Lesson1Page() {
 
              <div className="mt-10">
                   <VideoPlayer
-                      videoSrc="/M1100/chapter-02/lesson-01.mp4"
+                      videoSrc="youtube:f8xGtWV7NgY"
                       title="Lesson 1 —  Application et l image"
                   />
              </div>

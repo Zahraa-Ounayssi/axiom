@@ -31,7 +31,7 @@ export default function Lesson3Page() {
         {/* Video */}
        <div className="mt-10">
                 <VideoPlayer
-                    videoSrc="https://youtu.be/SQyxACBsIOA"
+                    videoSrc="youtube:SQyxACBsIOA"
                     title="Lesson 3—Anneau et Corps "
                 />
            </div>

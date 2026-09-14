@@ -31,7 +31,7 @@ export default function Lesson3Page() {
         {/* Video */}
        <div className="mt-10">
                   <VideoPlayer
-                      videoSrc="https://youtu.be/79ZidxS2cQo"
+                      videoSrc="youtube:79ZidxS2cQo"
                       title="Lesson 3— Exrcice complexe"
                   />
              </div>

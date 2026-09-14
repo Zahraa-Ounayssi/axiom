@@ -24,14 +24,14 @@ export default function Lesson4Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 4 — Analysis Concepts
+          Lesson 4 — Propriete d Archimede 
         </h1>
 
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-1/lesson-4.mp4"
-            title="Lesson 4 — Analysis Concepts"
+            videoSrc="youtube:OHpGTv_VoMQ"
+            title="Lesson 4 — Propriete d Archimede "
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson4Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+           Propriete d Archimede commet on le applique pour determiner l inf ou sup dun ensemble 
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">

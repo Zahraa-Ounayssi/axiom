@@ -24,14 +24,14 @@ export default function Lesson1Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 1 — Analysis Concepts
+          Lesson 1 — Limite d une fonction
         </h1>
 
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-3/lesson-1.mp4"
-            title="Lesson 1 — Analysis Concepts"
+            videoSrc="youtube:evH7Kr_HGBg"
+            title="Lesson 1 — Limite d une fonction"
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson1Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+            Limite dune fonction par definition + proposition
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">

@@ -60,7 +60,7 @@ export default function Lesson1Page() {
         {/* Video */}
         <div className="mt-10">
                  <VideoPlayer
-                     videoSrc="https://youtu.be/quN55yBoiEE"
+                     videoSrc="youtube:quN55yBoiEE"
                      title="Lesson 1 part 2—Revision d un nombre complexe "
                  />
             </div>

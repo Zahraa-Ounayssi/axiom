@@ -30,8 +30,8 @@ export default function Lesson2Page() {
         {/* Video */}
         <div className="mt-10">
           <VideoPlayer
-            videoSrc="/videos/analysis/chapter-1/lesson-2.mp4"
-            title="Lesson 2 — Analysis Concepts"
+            videoSrc="youtube:EjQzf9JimoY"
+            title="Lesson 2 — Partie entier "
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Lesson2Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Analysis Concepts
+            Partie entier explication + exercice 4 et 5
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">
@@ -51,6 +51,32 @@ export default function Lesson2Page() {
             mathematical examples.
           </p>
         </div>
+
+        {/* Video */}
+        <div className="mt-10">
+          <VideoPlayer
+            videoSrc="youtube:6I6P2U8-jvU"
+            title="Lesson 2 —  Partie entier"
+          />
+        </div>
+
+        {/* Description */}
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-7">
+          <p className="text-sm font-semibold text-blue-600">
+            Lesson 2
+          </p>
+
+          <h2 className="mt-2 text-2xl font-bold">
+             Partie entier exercice 5 ,6 et 7
+          </h2>
+
+          <p className="mt-4 leading-7 text-slate-600">
+            In this lesson, you will continue exploring the main
+            concepts of analysis through clear explanations and
+            mathematical examples.
+          </p>
+        </div>
+
 
         {/* Learning objectives */}
         <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-7">
