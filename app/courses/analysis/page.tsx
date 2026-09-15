@@ -3,7 +3,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 
 const chapters = [
@@ -16,8 +15,6 @@ const chapters = [
 ];
 
 export default function AnalysisPage() {
-  const router = useRouter();
-
   const [loading, setLoading] = useState(true);
   const [allowed, setAllowed] = useState(false);
 
@@ -33,11 +30,15 @@ export default function AnalysisPage() {
       error: userError,
     } = await supabase.auth.getUser();
 
+    // If the student is not logged in,
+    // they can still view the course structure.
     if (userError || !user) {
-      router.replace("/login");
+      setAllowed(false);
+      setLoading(false);
       return;
     }
 
+    // Check M1101 subscription
     const { data, error } = await supabase
       .from("subscriptions")
       .select("id")
@@ -53,59 +54,16 @@ export default function AnalysisPage() {
       return;
     }
 
-    if (!data) {
-      setAllowed(false);
-      setLoading(false);
-      return;
-    }
-
-    setAllowed(true);
+    setAllowed(!!data);
     setLoading(false);
   }
 
   if (loading) {
     return (
       <main className="min-h-screen flex items-center justify-center bg-slate-50">
-        <p className="text-slate-600">Checking your access...</p>
-      </main>
-    );
-  }
-
-  if (!allowed) {
-    return (
-      <main className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
-        <div className="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-
-          <div className="text-5xl">🔒</div>
-
-          <h1 className="mt-5 text-2xl font-bold text-slate-900">
-            Course Access Required
-          </h1>
-
-          <p className="mt-3 leading-7 text-slate-600">
-            You do not currently have an active subscription
-            for M1101 Analysis.
-          </p>
-
-          <div className="mt-7 flex flex-col gap-3">
-
-            <Link
-              href="/dashboard"
-              className="rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white transition hover:bg-blue-600"
-            >
-              Back to Dashboard
-            </Link>
-
-            <Link
-              href="/profile"
-              className="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 transition hover:bg-slate-100"
-            >
-              My Profile
-            </Link>
-
-          </div>
-
-        </div>
+        <p className="text-slate-600">
+          Loading course...
+        </p>
       </main>
     );
   }
@@ -132,6 +90,19 @@ export default function AnalysisPage() {
               understand analysis, practice effectively, and prepare
               confidently for your university exams.
             </p>
+
+            {!allowed && (
+              <div className="mt-8 inline-flex items-center rounded-xl border border-blue-400/30 bg-blue-500/10 px-4 py-3 text-sm text-blue-200">
+                🔓 Preview the course structure and try the first lesson
+                of each chapter for free.
+              </div>
+            )}
+
+            {allowed && (
+              <div className="mt-8 inline-flex items-center rounded-xl border border-green-400/30 bg-green-500/10 px-4 py-3 text-sm text-green-200">
+                ✓ You have full access to this course.
+              </div>
+            )}
 
           </div>
 
@@ -262,7 +233,7 @@ export default function AnalysisPage() {
 
         <Link
           href="/dashboard"
-          className="rounded-xl bg-slate-200 px-6 py-3 font-semibold text-slate-900 hover:bg-blue-500 hover:text-white"
+          className="rounded-xl bg-slate-200 px-6 py-3 font-semibold text-slate-900 transition hover:bg-blue-500 hover:text-white"
         >
           ← Back to Dashboard
         </Link>

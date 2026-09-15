@@ -1,12 +1,67 @@
+
 "use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
+
 const lessons = [
   "Lesson 1",
   "Lesson 2",
   "Lesson 3",
 ];
 
-export default function ChapterOnePage() {
+export default function ChapterThreePage() {
+  const [loading, setLoading] = useState(true);
+  const [allowed, setAllowed] = useState(false);
+
+  useEffect(() => {
+    checkAccess();
+  }, []);
+
+  async function checkAccess() {
+    setLoading(true);
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    // Not logged in = preview mode
+    if (!user) {
+      setAllowed(false);
+      setLoading(false);
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("subscriptions")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("course_code", "M1101")
+      .eq("status", "active")
+      .maybeSingle();
+
+    if (error) {
+      console.error("Subscription error:", error);
+      setAllowed(false);
+      setLoading(false);
+      return;
+    }
+
+    setAllowed(!!data);
+    setLoading(false);
+  }
+
+  if (loading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-slate-50">
+        <p className="text-slate-600">
+          Loading chapter...
+        </p>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <section className="bg-slate-950 text-white">
@@ -16,13 +71,25 @@ export default function ChapterOnePage() {
           </p>
 
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">
-            Chapter 3 limite et continuite d une fonction
+            Chapter 3 — Limite et continuité d'une fonction
           </h1>
 
           <p className="mt-4 max-w-2xl text-lg text-slate-300">
             Learn the concepts step by step, practice what you learn,
             and test your understanding with a quiz.
           </p>
+
+          {!allowed && (
+            <div className="mt-6 inline-flex rounded-xl border border-blue-400/30 bg-blue-500/10 px-4 py-3 text-sm text-blue-200">
+              🔓 Lesson 1 is free. Subscribe to access all lessons.
+            </div>
+          )}
+
+          {allowed && (
+            <div className="mt-6 inline-flex rounded-xl border border-green-400/30 bg-green-500/10 px-4 py-3 text-sm text-green-200">
+              ✓ You have full access to this chapter.
+            </div>
+          )}
         </div>
       </section>
 
@@ -32,35 +99,57 @@ export default function ChapterOnePage() {
         </h2>
 
         <div className="mt-8 space-y-4">
-          {lessons.map((lesson, index) => (
-            <div
-              key={lesson}
-              className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 font-bold text-blue-700">
-                  {index + 1}
+          {lessons.map((lesson, index) => {
+            const isFree = index === 0;
+            const isLocked = !isFree && !allowed;
+
+            return (
+              <div
+                key={lesson}
+                className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5"
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl font-bold ${
+                      isLocked
+                        ? "bg-slate-100 text-slate-500"
+                        : "bg-blue-50 text-blue-700"
+                    }`}
+                  >
+                    {index + 1}
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">
+                      {lesson}
+                    </h3>
+
+                    <p className="text-sm text-slate-500">
+                      {isLocked
+                        ? "🔒 Available with subscription"
+                        : isFree
+                        ? "Free preview"
+                        : "Video explanation"}
+                    </p>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-semibold">{lesson}</h3>
-                  <p className="text-sm text-slate-500">
-                    Video explanation
-                  </p>
-                </div>
+                {isLocked ? (
+                  <span className="rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-500">
+                    🔒 Locked
+                  </span>
+                ) : (
+                  <Link
+                    href={`/courses/analysis/chapter-3/lesson-${index + 1}`}
+                    className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-600"
+                  >
+                    Watch
+                  </Link>
+                )}
               </div>
-
-               <Link
-                  href={`/courses/analysis/chapter-3/lesson-${index + 1}`}
-                  className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-600"
-                >
-                   Watch
-                </Link>
-            </div>
-          ))}
+            );
+          })}
         </div>
-
-       
 
         <div className="mt-16 rounded-3xl bg-slate-950 p-8 text-white">
           <h2 className="text-3xl font-bold">
@@ -71,25 +160,28 @@ export default function ChapterOnePage() {
             Test your understanding before moving on.
           </p>
 
-      <Link 
+          <Link
             href="/courses/analysis/chapter-3/quiz"
-            className="mt-8 inline-flex rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white transition hover:bg-blue-600" > 
+            className="mt-8 inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-blue-600 hover:text-white"
+          >
             Start Chapter 3 Quiz →
-      </Link>
+          </Link>
 
           <p className="mt-4 text-sm text-slate-400">
             You can continue even if you don't pass.
           </p>
         </div>
-      </section>
-       <div className="mt-10">
-           <Link
-               href="/courses/analysis"
-                className="rounded-xl bg-slate-200 px-6 py-3 font-semibold text-slate-900 hover:bg-blue-500 hover:text-white"
-           >
-                 ← Back to Course
+
+        <div className="mt-10">
+          <Link
+            href="/courses/analysis"
+            className="rounded-xl bg-slate-200 px-6 py-3 font-semibold text-slate-900 hover:bg-blue-500 hover:text-white"
+          >
+            ← Back to Course
           </Link>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }
+

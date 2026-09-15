@@ -1,8 +1,89 @@
 
+"use client";
+
 import VideoPlayer from "@/app/components/videoplayer";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function Lesson2Page() {
+  const [allowed, setAllowed] = useState(false);
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    async function checkAccess() {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        setAllowed(false);
+        setChecking(false);
+        return;
+      }
+
+      const { data } = await supabase
+        .from("subscriptions")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("course_code", "M1101")
+        .eq("status", "active")
+        .maybeSingle();
+
+      setAllowed(!!data);
+      setChecking(false);
+    }
+
+    checkAccess();
+  }, []);
+
+  if (checking) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-slate-50">
+        <p className="text-slate-600">Loading...</p>
+      </main>
+    );
+  }
+
+  if (!allowed) {
+    return (
+      <main className="min-h-screen bg-slate-50 text-slate-950">
+        <header className="border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-6 py-5">
+            <Link
+              href="/courses/analysis/chapter-6"
+              className="font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ← Back to Chapter 6
+            </Link>
+          </div>
+        </header>
+
+        <section className="mx-auto flex min-h-[70vh] max-w-3xl items-center justify-center px-6 py-12">
+          <div className="w-full rounded-3xl border border-slate-200 bg-white p-10 text-center shadow-sm">
+            <div className="text-5xl">🔒</div>
+
+            <h1 className="mt-6 text-3xl font-bold">
+              Lesson 2 is locked
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-xl text-slate-600">
+              This lesson is available with an active M1101 subscription.
+              Subscribe to access the complete Chapter 6 content.
+            </p>
+
+            <Link
+              href="/courses/analysis/chapter-6"
+              className="mt-8 inline-flex rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white transition hover:bg-blue-600"
+            >
+              ← Back to Chapter 6
+            </Link>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       {/* Header */}
@@ -31,7 +112,7 @@ export default function Lesson2Page() {
         <div className="mt-10">
           <VideoPlayer
             videoSrc="youtube:3uDiXBBjeLU"
-            title="Lesson 2 —Application-1"
+            title="Lesson 2 — Application-1"
           />
         </div>
 
@@ -60,17 +141,23 @@ export default function Lesson2Page() {
           <ul className="mt-5 space-y-4">
             <li className="flex items-start gap-3 text-slate-700">
               <span className="font-bold text-blue-600">✓</span>
-              <span>Understand the concepts introduced in this lesson</span>
+              <span>
+                Understand the concepts introduced in this lesson
+              </span>
             </li>
 
             <li className="flex items-start gap-3 text-slate-700">
               <span className="font-bold text-blue-600">✓</span>
-              <span>Work with the main mathematical definitions</span>
+              <span>
+                Work with the main mathematical definitions
+              </span>
             </li>
 
             <li className="flex items-start gap-3 text-slate-700">
               <span className="font-bold text-blue-600">✓</span>
-              <span>Apply the concepts to mathematical examples</span>
+              <span>
+                Apply the concepts to mathematical examples
+              </span>
             </li>
           </ul>
         </div>

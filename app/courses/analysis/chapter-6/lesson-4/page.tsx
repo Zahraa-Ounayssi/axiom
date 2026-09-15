@@ -1,8 +1,89 @@
 
+"use client";
+
 import VideoPlayer from "@/app/components/videoplayer";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function Lesson4Page() {
+  const [allowed, setAllowed] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const checkAccess = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        setAllowed(false);
+        setLoading(false);
+        return;
+      }
+
+      const { data } = await supabase
+        .from("subscriptions")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("course_code", "M1101")
+        .eq("status", "active")
+        .maybeSingle();
+
+      setAllowed(!!data);
+      setLoading(false);
+    };
+
+    checkAccess();
+  }, []);
+
+  if (loading) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-slate-50">
+        <p className="text-slate-600">Checking access...</p>
+      </main>
+    );
+  }
+
+  if (!allowed) {
+    return (
+      <main className="min-h-screen bg-slate-50 text-slate-950">
+        <header className="border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-6 py-5">
+            <Link
+              href="/courses/analysis/chapter-6"
+              className="font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ← Back to Chapter 6
+            </Link>
+          </div>
+        </header>
+
+        <section className="mx-auto max-w-3xl px-6 py-20 text-center">
+          <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm">
+            <div className="text-5xl">🔒</div>
+
+            <h1 className="mt-6 text-3xl font-bold">
+              This lesson is locked
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-xl leading-7 text-slate-600">
+              Lesson 4 is available with an active M1101 subscription.
+              Subscribe to access all lessons of this chapter.
+            </p>
+
+            <Link
+              href="/courses/analysis/chapter-6"
+              className="mt-8 inline-block rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white transition hover:bg-blue-600"
+            >
+              ← Back to Chapter 6
+            </Link>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       {/* Header */}
@@ -42,7 +123,7 @@ export default function Lesson4Page() {
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-           Application-3
+            Application-3
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">
@@ -86,10 +167,10 @@ export default function Lesson4Page() {
           </Link>
 
           <Link
-            href="/courses/analysis/chapter-6/lesson-5"
+            href="/courses/analysis/chapter-6"
             className="rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white transition hover:bg-blue-600"
           >
-            Next →
+            Complete Chapter →
           </Link>
         </div>
       </section>

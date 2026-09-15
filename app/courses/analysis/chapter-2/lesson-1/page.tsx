@@ -24,25 +24,25 @@ export default function Lesson1Page() {
         </p>
 
         <h1 className="mt-3 text-4xl font-bold md:text-5xl">
-          Lesson 1 — Suite geometrique
+          Lesson 1 — Suite géométrique
         </h1>
 
-        {/* Video */}
+        {/* Video 1 */}
         <div className="mt-10">
           <VideoPlayer
             videoSrc="youtube:RW8me_0icuM"
-            title="Lesson 1 —part 1  Suite geometrique"
+            title="Lesson 1 — Part 1 — Suite géométrique"
           />
         </div>
 
-        {/* Description */}
+        {/* Description 1 */}
         <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-7">
           <p className="text-sm font-semibold text-blue-600">
-            Lesson 1
+            Lesson 1 · Part 1
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            Suite geometrique definition et propriete
+            Suite géométrique — définition et propriété
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">
@@ -52,31 +52,30 @@ export default function Lesson1Page() {
           </p>
         </div>
 
-        {/* Video */}
+        {/* Video 2 */}
         <div className="mt-10">
           <VideoPlayer
             videoSrc="youtube:wcdmsiVfzKw"
-            title="Lesson 1 —part 2  Suite geometrique"
+            title="Lesson 1 — Part 2 — Suite géométrique"
           />
         </div>
 
-        {/* Description */}
+        {/* Description 2 */}
         <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-7">
           <p className="text-sm font-semibold text-blue-600">
-            Lesson 1
+            Lesson 1 · Part 2
           </p>
 
           <h2 className="mt-2 text-2xl font-bold">
-            part 2  Suite geometrique des exemples sur la limite par definition
+            Suite géométrique — exemples sur la limite par définition
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">
-            In this lesson, you will learn the main concepts
-            introduced in Chapter 2 and develop your understanding
-            through mathematical explanations and examples.
+            In this part, you will continue studying geometric
+            sequences through examples and applications related
+            to limits.
           </p>
         </div>
-
 
         {/* Learning objectives */}
         <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-7">
@@ -87,17 +86,23 @@ export default function Lesson1Page() {
           <ul className="mt-5 space-y-4">
             <li className="flex items-start gap-3 text-slate-700">
               <span className="font-bold text-blue-600">✓</span>
-              <span>Understand the main concepts of this lesson</span>
+              <span>
+                Understand the main concepts of this lesson
+              </span>
             </li>
 
             <li className="flex items-start gap-3 text-slate-700">
               <span className="font-bold text-blue-600">✓</span>
-              <span>Understand the mathematical definitions</span>
+              <span>
+                Understand the mathematical definitions
+              </span>
             </li>
 
             <li className="flex items-start gap-3 text-slate-700">
               <span className="font-bold text-blue-600">✓</span>
-              <span>Apply the concepts to mathematical examples</span>
+              <span>
+                Apply the concepts to mathematical examples
+              </span>
             </li>
           </ul>
         </div>
