@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -14,9 +13,16 @@ const chapters = [
   { number: "06", lessons: 5 },
 ];
 
+type PDFFile = {
+  chapter: string;
+  name: string;
+  url: string;
+};
+
 export default function AnalysisPage() {
   const [loading, setLoading] = useState(true);
   const [allowed, setAllowed] = useState(false);
+  const [pdfs, setPdfs] = useState<PDFFile[]>([]);
 
   useEffect(() => {
     checkAccess();
@@ -54,8 +60,69 @@ export default function AnalysisPage() {
       return;
     }
 
-    setAllowed(!!data);
+    const hasAccess = !!data;
+
+    setAllowed(hasAccess);
+
+    // Load PDFs only for students who have access
+    if (hasAccess) {
+      await loadPDFs();
+    }
+
     setLoading(false);
+  }
+
+  async function loadPDFs() {
+    const chapterNumbers = ["01", "02", "03", "04", "05", "06"];
+
+    const allPdfs: PDFFile[] = [];
+
+    for (const chapter of chapterNumbers) {
+      const folderPath = `M1101/chapter_${chapter}`;
+
+      const { data, error } = await supabase.storage
+        .from("courses_pdfs")
+        .list(folderPath);
+
+      if (error) {
+        console.error(`Error loading ${folderPath}:`, error);
+        continue;
+      }
+
+      if (!data) continue;
+
+      for (const file of data) {
+        // Ignore folders and non-PDF files
+        if (!file.name.toLowerCase().endsWith(".pdf")) {
+          continue;
+        }
+
+        const filePath = `${folderPath}/${file.name}`;
+
+        const { data: signedData, error: signedError } =
+          await supabase.storage
+            .from("courses_pdfs")
+            .createSignedUrl(filePath, 3600);
+
+        if (signedError) {
+          console.error(
+            `Error creating signed URL for ${filePath}:`,
+            signedError
+          );
+          continue;
+        }
+
+        if (signedData?.signedUrl) {
+          allPdfs.push({
+            chapter,
+            name: file.name,
+            url: signedData.signedUrl,
+          });
+        }
+      }
+    }
+
+    setPdfs(allPdfs);
   }
 
   if (loading) {
@@ -179,6 +246,85 @@ export default function AnalysisPage() {
 
             </div>
 
+            {/* PDF Resources */}
+            {allowed && pdfs.length > 0 && (
+              <div className="mt-14">
+
+                <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+                  PDF Resources
+                </p>
+
+                <h2 className="mt-2 text-3xl font-bold">
+                  Chapter PDFs
+                </h2>
+
+                <p className="mt-4 max-w-2xl leading-7 text-slate-600">
+                  Course documents and chapter materials.
+                </p>
+
+                <div className="mt-8 space-y-6">
+
+                  {chapters.map((chapter) => {
+
+                    const chapterPDFs = pdfs.filter(
+                      (pdf) => pdf.chapter === chapter.number
+                    );
+
+                    if (chapterPDFs.length === 0) {
+                      return null;
+                    }
+
+                    return (
+                      <div
+                        key={chapter.number}
+                        className="rounded-2xl border border-slate-200 bg-white p-6"
+                      >
+
+                        <h3 className="text-xl font-bold">
+                          Chapter {chapter.number}
+                        </h3>
+
+                        <div className="mt-4 space-y-3">
+
+                          {chapterPDFs.map((pdf) => (
+                            <a
+                              key={pdf.url}
+                              href={pdf.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 p-4 transition hover:border-blue-400 hover:bg-blue-50"
+                            >
+
+                              <div className="flex items-center gap-3 min-w-0">
+
+                                <span className="text-2xl">
+                                  📄
+                                </span>
+
+                                <span className="font-medium text-slate-900 break-all">
+                                  {pdf.name}
+                                </span>
+
+                              </div>
+
+                              <span className="shrink-0 text-sm font-semibold text-blue-600">
+                                Open PDF →
+                              </span>
+
+                            </a>
+                          ))}
+
+                        </div>
+
+                      </div>
+                    );
+                  })}
+
+                </div>
+
+              </div>
+            )}
+
           </div>
 
           {/* Sidebar */}
@@ -243,4 +389,3 @@ export default function AnalysisPage() {
     </main>
   );
 }
-
