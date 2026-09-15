@@ -1,15 +1,57 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
+
 const lessons = [
   "Lesson 1",
   "Lesson 2",
 ];
 
-export default function Page(){
+export default function Page() {
+  const [isSubscriber, setIsSubscriber] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function checkSubscription() {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        setIsSubscriber(false);
+        setLoading(false);
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("subscriptions")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("course_code", "M1100")
+        .eq("status", "active")
+        .maybeSingle();
+
+      if (error || !data) {
+        setIsSubscriber(false);
+      } else {
+        setIsSubscriber(true);
+      }
+
+      setLoading(false);
+    }
+
+    checkSubscription();
+  }, []);
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
+
+      {/* Hero */}
       <section className="bg-slate-950 text-white">
         <div className="mx-auto max-w-7xl px-6 py-16">
+
           <p className="text-sm font-semibold uppercase tracking-wider text-blue-400">
             M1100 · Algebra
           </p>
@@ -22,43 +64,96 @@ export default function Page(){
             Learn the concepts step by step, practice what you learn,
             and test your understanding with a quiz.
           </p>
+
         </div>
       </section>
 
+      {/* Content */}
       <section className="mx-auto max-w-5xl px-6 py-16">
+
         <h2 className="text-3xl font-bold">
           Video lessons
         </h2>
 
+        {/* Access message */}
+        {!loading && (
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+
+            {isSubscriber ? (
+              <p className="font-semibold text-green-600">
+                ✓ You have full access to this chapter.
+              </p>
+            ) : (
+              <p className="font-semibold text-slate-700">
+                🔓 Lesson 1 is free. Subscribe to M1100 Algebra
+                to access Lesson 2.
+              </p>
+            )}
+
+          </div>
+        )}
+
         <div className="mt-8 space-y-4">
-          {lessons.map((lesson, index) => (
-            <div
-              key={lesson}
-              className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 font-bold text-blue-700">
-                  {index + 1}
+
+          {lessons.map((lesson, index) => {
+            const lessonNumber = index + 1;
+            const isFree = lessonNumber === 1;
+            const canWatch = isFree || isSubscriber;
+
+            return (
+              <div
+                key={lesson}
+                className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5"
+              >
+
+                <div className="flex items-center gap-4">
+
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 font-bold text-blue-700">
+                    {lessonNumber}
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold">
+                      {lesson}
+                    </h3>
+
+                    <p className="text-sm text-slate-500">
+                      Video explanation
+                    </p>
+                  </div>
+
                 </div>
 
-                <div>
-                  <h3 className="font-semibold">{lesson}</h3>
-                  <p className="text-sm text-slate-500">
-                    Video explanation
-                  </p>
-                </div>
+                {canWatch ? (
+                  <Link
+                    href={`/courses/algebra/chapter-7/lesson-${lessonNumber}`}
+                    className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-600"
+                  >
+                    Watch
+                  </Link>
+                ) : (
+                  <div className="flex items-center gap-2">
+
+                    <span className="text-lg">
+                      🔒
+                    </span>
+
+                    <span className="rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-500">
+                      Locked
+                    </span>
+
+                  </div>
+                )}
+
               </div>
+            );
+          })}
 
-              <button className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-600">
-                Watch
-              </button>
-            </div>
-          ))}
         </div>
 
-       
-
+        {/* Quiz */}
         <div className="mt-16 rounded-3xl bg-slate-950 p-8 text-white">
+
           <h2 className="text-3xl font-bold">
             Chapter 7 Quiz
           </h2>
@@ -67,25 +162,30 @@ export default function Page(){
             Test your understanding before moving on.
           </p>
 
-           <Link 
-                href="/courses/algebra/chapter-7/quiz" 
-                className="mt-8 inline-flex rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white transition hover:bg-blue-600" >
-                Start Chapter 7 Quiz →
-           </Link>
+          <Link
+            href="/courses/algebra/chapter-7/quiz"
+            className="mt-8 inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-blue-600 hover:text-white"
+          >
+            Start Chapter 7 Quiz →
+          </Link>
 
           <p className="mt-4 text-sm text-slate-400">
             You can continue even if you don't pass.
           </p>
+
         </div>
+
+        {/* Back to course */}
+        <div className="mt-10">
+          <Link
+            href="/courses/algebra"
+            className="rounded-xl bg-slate-200 px-6 py-3 font-semibold text-slate-900 hover:bg-blue-500 hover:text-white"
+          >
+            ← Back to Course
+          </Link>
+        </div>
+
       </section>
-       <div className="mt-10">
-           <Link
-               href="/courses/algebra"
-               className="rounded-xl bg-slate-200 px-6 py-3 font-semibold text-slate-900 hover:bg-blue-500 hover:text-white"
-            >
-               ← Back to Course
-           </Link>
-      </div>
     </main>
   );
 }

@@ -1,7 +1,8 @@
-
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 const lessons = [
   "Lesson 1",
@@ -12,9 +13,53 @@ const lessons = [
 ];
 
 export default function Page() {
+  const [allowed, setAllowed] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    checkAccess();
+  }, []);
+
+  async function checkAccess() {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      setAllowed(false);
+      setLoading(false);
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("subscriptions")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("course_code", "M1100")
+      .eq("status", "active")
+      .maybeSingle();
+
+    if (error) {
+      console.error("Subscription error:", error);
+      setAllowed(false);
+      setLoading(false);
+      return;
+    }
+
+    setAllowed(!!data);
+    setLoading(false);
+  }
+
+  if (loading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-slate-50">
+        <p className="text-slate-600">Loading chapter...</p>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
-
       {/* Header */}
       <section className="bg-slate-950 text-white">
         <div className="mx-auto max-w-7xl px-6 py-16">
@@ -33,51 +78,80 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Access message */}
+      <section className="mx-auto max-w-5xl px-6 pt-10">
+        {allowed ? (
+          <div className="rounded-2xl border border-green-200 bg-green-50 px-6 py-5">
+            <p className="font-semibold text-green-800">
+              ✓ You have full access to this chapter.
+            </p>
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-blue-200 bg-blue-50 px-6 py-5">
+            <p className="font-semibold text-blue-800">
+              🔓 Lesson 1 is free. Subscribe to access all lessons.
+            </p>
+          </div>
+        )}
+      </section>
+
       {/* Course content */}
       <section className="mx-auto max-w-5xl px-6 py-16">
-
         {/* Video lessons */}
         <h2 className="text-3xl font-bold">
           Video lessons
         </h2>
 
         <div className="mt-8 space-y-4">
-          {lessons.map((lesson, index) => (
-            <div
-              key={lesson}
-              className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5 transition hover:shadow-md"
-            >
-              <div className="flex items-center gap-4">
+          {lessons.map((lesson, index) => {
+            const isFree = index === 0;
+            const isLocked = !allowed && !isFree;
 
-                {/* Lesson number */}
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 font-bold text-blue-700">
-                  {index + 1}
-                </div>
-
-                {/* Lesson information */}
-                <div>
-                  <h3 className="font-semibold">
-                    {lesson}
-                  </h3>
-
-                  <p className="text-sm text-slate-500">
-                    Video explanation
-                  </p>
-                </div>
-              </div>
-
-              {/* Watch */}
-              <Link
-                href={`/courses/algebra/chapter-1/lesson-${index + 1}`}
-                className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600"
+            return (
+              <div
+                key={lesson}
+                className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-5 transition hover:shadow-md"
               >
-                Watch
-              </Link>
-            </div>
-          ))}
+                <div className="flex items-center gap-4">
+                  {/* Lesson number */}
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 font-bold text-blue-700">
+                    {index + 1}
+                  </div>
+
+                  {/* Lesson information */}
+                  <div>
+                    <h3 className="font-semibold">
+                      {lesson}
+                    </h3>
+
+                    <p className="text-sm text-slate-500">
+                      {isFree
+                        ? "Free video explanation"
+                        : isLocked
+                        ? "🔒 Subscribers only"
+                        : "Video explanation"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Watch / Locked */}
+                {isLocked ? (
+                  <div className="rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-500">
+                    🔒 Locked
+                  </div>
+                ) : (
+                  <Link
+                    href={`/courses/algebra/chapter-1/lesson-${index + 1}`}
+                    className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600"
+                  >
+                    Watch
+                  </Link>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-      
         {/* Quiz */}
         <div className="mt-16 rounded-3xl bg-slate-950 p-8 text-white">
           <h2 className="text-3xl font-bold">
@@ -89,9 +163,10 @@ export default function Page() {
           </p>
 
           <Link
-               href="/courses/algebra/chapter-1/quiz" 
-               className="mt-8 inline-flex rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white transition hover:bg-blue-600" > 
-               Start Chapter 1 Quiz →
+            href="/courses/algebra/chapter-1/quiz"
+            className="mt-8 inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-blue-500 hover:text-white"
+          >
+            Start Chapter 1 Quiz →
           </Link>
 
           <p className="mt-4 text-sm text-slate-400">
@@ -108,9 +183,7 @@ export default function Page() {
             ← Back to Course
           </Link>
         </div>
-
       </section>
     </main>
   );
 }
-

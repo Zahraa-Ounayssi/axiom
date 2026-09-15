@@ -3,7 +3,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 
 const chapters = [
@@ -12,12 +11,10 @@ const chapters = [
   { number: "04", lessons: 4 },
   { number: "05", lessons: 3 },
   { number: "06", lessons: 3 },
-  { number: "07", lessons: 2  },
+  { number: "07", lessons: 2 },
 ];
 
 export default function AlgebraPage() {
-  const router = useRouter();
-
   const [loading, setLoading] = useState(true);
   const [allowed, setAllowed] = useState(false);
 
@@ -26,20 +23,18 @@ export default function AlgebraPage() {
   }, []);
 
   async function checkAccess() {
-    setLoading(true);
-
-    // 1. Check logged-in user
     const {
       data: { user },
-      error: userError,
     } = await supabase.auth.getUser();
 
-    if (userError || !user) {
-      router.replace("/login");
+    // Visitor is allowed to see the course structure
+    if (!user) {
+      setAllowed(false);
+      setLoading(false);
       return;
     }
 
-    // 2. Check M1100 subscription
+    // Check M1100 subscription
     const { data, error } = await supabase
       .from("subscriptions")
       .select("id")
@@ -55,58 +50,14 @@ export default function AlgebraPage() {
       return;
     }
 
-    if (!data) {
-      setAllowed(false);
-      setLoading(false);
-      return;
-    }
-
-    // 3. Student has access
-    setAllowed(true);
+    setAllowed(!!data);
     setLoading(false);
   }
 
   if (loading) {
     return (
       <main className="min-h-screen flex items-center justify-center bg-slate-50">
-        <p className="text-slate-600">Checking your access...</p>
-      </main>
-    );
-  }
-
-  if (!allowed) {
-    return (
-      <main className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
-        <div className="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-
-          <div className="text-5xl">🔒</div>
-
-          <h1 className="mt-5 text-2xl font-bold text-slate-900">
-            Course Access Required
-          </h1>
-
-          <p className="mt-3 leading-7 text-slate-600">
-            You do not currently have an active subscription
-            for M1100 Algebra.
-          </p>
-
-          <div className="mt-7 flex flex-col gap-3">
-            <Link
-              href="/dashboard"
-              className="rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white transition hover:bg-blue-600"
-            >
-              Back to Dashboard
-            </Link>
-
-            <Link
-              href="/profile"
-              className="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 transition hover:bg-slate-100"
-            >
-              My Profile
-            </Link>
-          </div>
-
-        </div>
+        <p className="text-slate-600">Loading course...</p>
       </main>
     );
   }
@@ -135,6 +86,26 @@ export default function AlgebraPage() {
 
           </div>
         </div>
+      </section>
+
+      {/* Access status */}
+      <section className="mx-auto max-w-7xl px-6 pt-10">
+
+        {allowed ? (
+          <div className="rounded-2xl border border-green-200 bg-green-50 px-6 py-5">
+            <p className="font-semibold text-green-800">
+              ✓ You have full access to this course.
+            </p>
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-blue-200 bg-blue-50 px-6 py-5">
+            <p className="font-semibold text-blue-800">
+              🔓 Preview the course structure and try the first lesson
+              of each chapter for free.
+            </p>
+          </div>
+        )}
+
       </section>
 
       {/* Course content */}
@@ -267,3 +238,4 @@ export default function AlgebraPage() {
     </main>
   );
 }
+

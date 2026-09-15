@@ -1,7 +1,94 @@
+
+"use client";
+
+import { useEffect, useState } from "react";
 import VideoPlayer from "@/app/components/videoplayer";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 export default function Lesson4Page() {
+  const [allowed, setAllowed] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function checkAccess() {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        setAllowed(false);
+        setLoading(false);
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("subscriptions")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("course_code", "M1100")
+        .eq("status", "active")
+        .maybeSingle();
+
+      if (error || !data) {
+        setAllowed(false);
+      } else {
+        setAllowed(true);
+      }
+
+      setLoading(false);
+    }
+
+    checkAccess();
+  }, []);
+
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-slate-50 text-slate-950 flex items-center justify-center">
+        <p className="text-slate-600">Checking access...</p>
+      </main>
+    );
+  }
+
+  if (!allowed) {
+    return (
+      <main className="min-h-screen bg-slate-50 text-slate-950">
+        <header className="border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-6 py-5">
+            <Link
+              href="/courses/algebra/chapter-2"
+              className="font-semibold text-slate-700 hover:text-blue-600"
+            >
+              ← Back to Chapter 2
+            </Link>
+          </div>
+        </header>
+
+        <section className="mx-auto max-w-3xl px-6 py-20 text-center">
+          <div className="rounded-2xl border border-slate-200 bg-white p-10 shadow-sm">
+            <div className="text-5xl">🔒</div>
+
+            <h1 className="mt-5 text-3xl font-bold">
+              This lesson is locked
+            </h1>
+
+            <p className="mt-4 leading-7 text-slate-600">
+              Lesson 1 is available for free. Subscribe to M1100 Algebra
+              to access this lesson and the rest of the course.
+            </p>
+
+            <Link
+              href="/courses/algebra"
+              className="mt-7 inline-block rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white hover:bg-blue-600"
+            >
+              Back to M1100 Algebra
+            </Link>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <header className="border-b border-slate-200 bg-white">
@@ -24,11 +111,11 @@ export default function Lesson4Page() {
           Lesson 4 Exercices
         </h1>
 
-       <div className="mt-10">
-             <VideoPlayer
-                 videoSrc="youtube:yZ4rSvzwxHs"
-                 title="Lesson 4— Exercices"
-             />
+        <div className="mt-10">
+          <VideoPlayer
+            videoSrc="youtube:yZ4rSvzwxHs"
+            title="Lesson 4 — Exercices"
+          />
         </div>
 
         <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-7">
@@ -41,8 +128,8 @@ export default function Lesson4Page() {
           </h2>
 
           <p className="mt-4 leading-7 text-slate-600">
-            In this lesson, you will continue learning the main
-            concepts of Chapter 2.
+            In this lesson, you will continue learning the main concepts of
+            Chapter 2.
           </p>
         </div>
 
