@@ -37,11 +37,20 @@ export default function LoginPage() {
         password,
       });
 
-      if (error) {
-        setMessage(error.message);
-        setLoading(false);
-        return;
-      }
+         if (error) {
+  if (
+    error.message.toLowerCase().includes("email not confirmed")
+  ) {
+    setMessage(
+      "Please confirm your email before logging in. Check your inbox and spam folder."
+    );
+  } else {
+    setMessage(error.message);
+  }
+
+  setLoading(false);
+  return;
+}
 
       router.replace("/dashboard");
       router.refresh();
