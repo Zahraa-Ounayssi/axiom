@@ -492,7 +492,7 @@ export default function Home() {
 
           {/* M1100 */}
           <a
-            href="/pdfs/previous_year/semester1/partial/M1100.pdf"
+            href="/public/pdfs/previous_year/semester1/partial/M1100.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
@@ -522,7 +522,7 @@ export default function Home() {
 
           {/* M1101 */}
           <a
-            href="/pdfs/previous_year/semester1/partial/M1101.pdf"
+            href="/public/pdfs/previous_year/semester1/partial/M1101.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
@@ -552,7 +552,7 @@ export default function Home() {
 
           {/* P1100 */}
           <a
-            href="/pdfs/previous_year/semester1/partial/P1100.pdf"
+            href="/public/pdfs/previous_year/semester1/partial/P1100.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
@@ -582,7 +582,7 @@ export default function Home() {
 
           {/* P1101 */}
           <a
-            href="/pdfs/previous_year/semester1/partial/P1101.pdf"
+            href="/public/pdfs/previous_year/semester1/partial/P1101.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
@@ -626,7 +626,7 @@ export default function Home() {
 
           {/* M1100 */}
           <a
-            href="/pdfs/previous_year/semester1/final/M1100.pdf"
+            href="/public/pdfs/previous_year/semester1/final/M1100.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
@@ -656,7 +656,7 @@ export default function Home() {
 
           {/* M1101 */}
           <a
-            href="/pdfs/previous_year/semester1/final/M1101.pdf"
+            href="/public/pdfs/previous_year/semester1/final/M1101.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
@@ -686,7 +686,7 @@ export default function Home() {
 
           {/* P1101 */}
           <a
-            href="/pdfs/previous_year/semester1/final/P1101.pdf"
+            href="/piblic/pdfs/previous_year/semester1/final/P1101.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
@@ -837,7 +837,7 @@ export default function Home() {
 
           {/* I1101 */}
           <a
-            href="/pdfs/previous_year/semester2/final/I1101.pdf"
+            href="/public/pdfs/previous_year/semester2/final/I1101.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg"
