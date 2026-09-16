@@ -10,10 +10,6 @@ export default function FinalPage() {
       number: "2",
       title: "Session 2",
     },
-    {
-      number: "3",
-      title: "Session 3",
-    },
   ];
 
   return (
@@ -57,7 +53,7 @@ export default function FinalPage() {
               </h2>
 
               <p className="mt-2 text-sm text-gray-500">
-                Video, exam PDF and correction
+                 exam PDF and correction
               </p>
 
               <div className="mt-6 font-semibold text-black">
