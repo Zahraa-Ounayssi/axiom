@@ -441,6 +441,458 @@ export default function Home() {
 </div>
   </div>
 </section>
+
+
+{/* Previous Year Courses */}
+<section id="previous-year" className="border-t border-slate-200 bg-slate-50">
+  <div className="mx-auto max-w-7xl px-6 py-24">
+
+    {/* Section Header */}
+    <div className="mx-auto max-w-3xl text-center">
+      <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+        Previous Year
+      </p>
+
+      <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        Previous Year Courses
+      </h2>
+
+      <p className="mt-5 text-lg leading-8 text-slate-600">
+        Access previous year exam subjects and practice with real university
+        exam papers.
+      </p>
+
+      <p className="mt-3 text-sm text-slate-500">
+        Exam papers are provided without corrections.
+      </p>
+    </div>
+
+    {/* Semester 1 */}
+    <div className="mt-16">
+      <div className="mb-8">
+        <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+          Semester 1
+        </p>
+
+        <h3 className="mt-2 text-2xl font-bold text-slate-900">
+          MISPE
+        </h3>
+      </div>
+
+      {/* Partial */}
+      <div>
+        <div className="mb-5 flex items-center gap-3">
+          <div className="h-8 w-1 rounded-full bg-blue-600" />
+          <h4 className="text-xl font-bold text-slate-900">
+            Partial Exams
+          </h4>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+          {/* M1100 */}
+          <a
+            href="/pdfs/previous_year/semester1/partial/M1100.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between">
+              <span className="rounded-lg bg-blue-50 px-3 py-1.5 text-sm font-bold text-blue-700">
+                M1100
+              </span>
+
+              <span className="text-slate-400 transition group-hover:text-blue-600">
+                ↗
+              </span>
+            </div>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Algebra
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year partial exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-blue-600">
+              Open PDF →
+            </p>
+          </a>
+
+          {/* M1101 */}
+          <a
+            href="/pdfs/previous_year/semester1/partial/M1101.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between">
+              <span className="rounded-lg bg-blue-50 px-3 py-1.5 text-sm font-bold text-blue-700">
+                M1101
+              </span>
+
+              <span className="text-slate-400 transition group-hover:text-blue-600">
+                ↗
+              </span>
+            </div>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Analysis
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year partial exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-blue-600">
+              Open PDF →
+            </p>
+          </a>
+
+          {/* P1100 */}
+          <a
+            href="/pdfs/previous_year/semester1/partial/P1100.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between">
+              <span className="rounded-lg bg-blue-50 px-3 py-1.5 text-sm font-bold text-blue-700">
+                P1100
+              </span>
+
+              <span className="text-slate-400 transition group-hover:text-blue-600">
+                ↗
+              </span>
+            </div>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Physics
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year partial exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-blue-600">
+              Open PDF →
+            </p>
+          </a>
+
+          {/* P1101 */}
+          <a
+            href="/pdfs/previous_year/semester1/partial/P1101.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between">
+              <span className="rounded-lg bg-blue-50 px-3 py-1.5 text-sm font-bold text-blue-700">
+                P1101
+              </span>
+
+              <span className="text-slate-400 transition group-hover:text-blue-600">
+                ↗
+              </span>
+            </div>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Physics
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year partial exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-blue-600">
+              Open PDF →
+            </p>
+          </a>
+
+        </div>
+      </div>
+
+      {/* Final */}
+      <div className="mt-14">
+        <div className="mb-5 flex items-center gap-3">
+          <div className="h-8 w-1 rounded-full bg-indigo-600" />
+          <h4 className="text-xl font-bold text-slate-900">
+            Final Exams
+          </h4>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          {/* M1100 */}
+          <a
+            href="/pdfs/previous_year/semester1/final/M1100.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between">
+              <span className="rounded-lg bg-indigo-50 px-3 py-1.5 text-sm font-bold text-indigo-700">
+                M1100
+              </span>
+
+              <span className="text-slate-400 transition group-hover:text-indigo-600">
+                ↗
+              </span>
+            </div>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Algebra
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-indigo-600">
+              Open PDF →
+            </p>
+          </a>
+
+          {/* M1101 */}
+          <a
+            href="/pdfs/previous_year/semester1/final/M1101.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between">
+              <span className="rounded-lg bg-indigo-50 px-3 py-1.5 text-sm font-bold text-indigo-700">
+                M1101
+              </span>
+
+              <span className="text-slate-400 transition group-hover:text-indigo-600">
+                ↗
+              </span>
+            </div>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Analysis
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-indigo-600">
+              Open PDF →
+            </p>
+          </a>
+
+          {/* P1101 */}
+          <a
+            href="/pdfs/previous_year/semester1/final/P1101.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between">
+              <span className="rounded-lg bg-indigo-50 px-3 py-1.5 text-sm font-bold text-indigo-700">
+                P1101
+              </span>
+
+              <span className="text-slate-400 transition group-hover:text-indigo-600">
+                ↗
+              </span>
+            </div>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Physics
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-indigo-600">
+              Open PDF →
+            </p>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    {/* Semester 2 */}
+    <div className="mt-20">
+      <div className="mb-8">
+        <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+          Semester 2
+        </p>
+
+        <h3 className="mt-2 text-2xl font-bold text-slate-900">
+          MIS
+        </h3>
+      </div>
+
+      <div>
+        <div className="mb-5 flex items-center gap-3">
+          <div className="h-8 w-1 rounded-full bg-violet-600" />
+          <h4 className="text-xl font-bold text-slate-900">
+            Final Exams
+          </h4>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          {/* M1102 */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 opacity-70">
+            <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-bold text-slate-600">
+              M1102
+            </span>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Course M1102
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-slate-400">
+              Coming soon
+            </p>
+          </div>
+
+          {/* M1103 */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 opacity-70">
+            <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-bold text-slate-600">
+              M1103
+            </span>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Course M1103
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-slate-400">
+              Coming soon
+            </p>
+          </div>
+
+          {/* M1104 */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 opacity-70">
+            <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-bold text-slate-600">
+              M1104
+            </span>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Course M1104
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-slate-400">
+              Coming soon
+            </p>
+          </div>
+
+          {/* M1105 */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 opacity-70">
+            <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-bold text-slate-600">
+              M1105
+            </span>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Course M1105
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-slate-400">
+              Coming soon
+            </p>
+          </div>
+
+          {/* M1106 */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 opacity-70">
+            <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-bold text-slate-600">
+              M1106
+            </span>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Course M1106
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-slate-400">
+              Coming soon
+            </p>
+          </div>
+
+          {/* I1101 */}
+          <a
+            href="/pdfs/previous_year/semester2/final/I1101.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between">
+              <span className="rounded-lg bg-violet-50 px-3 py-1.5 text-sm font-bold text-violet-700">
+                I1101
+              </span>
+
+              <span className="text-slate-400 transition group-hover:text-violet-600">
+                ↗
+              </span>
+            </div>
+
+            <h5 className="mt-5 font-semibold text-slate-900">
+              Informatics
+            </h5>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Previous year final exam
+            </p>
+
+            <p className="mt-5 text-sm font-medium text-violet-600">
+              Open PDF →
+            </p>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    {/* Notice */}
+    <div className="mt-14 rounded-2xl border border-blue-100 bg-blue-50 px-6 py-5">
+      <div className="flex gap-4">
+        <div className="mt-0.5 text-blue-600">
+          ℹ
+        </div>
+
+        <div>
+          <p className="font-semibold text-slate-900">
+            Previous year exam resources
+          </p>
+
+          <p className="mt-1 text-sm leading-6 text-slate-600">
+            These exam papers are provided for practice and preparation.
+            Corrections and solution videos are not included.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 {/* Exam Preparation */}
 <section className="border-t border-slate-200 bg-slate-950 text-white">
   <div className="mx-auto max-w-7xl px-6 py-24">
