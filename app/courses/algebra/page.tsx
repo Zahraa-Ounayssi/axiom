@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -17,9 +16,11 @@ const chapters = [
 export default function AlgebraPage() {
   const [loading, setLoading] = useState(true);
   const [allowed, setAllowed] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
 
   useEffect(() => {
     checkAccess();
+    loadPdf();
   }, []);
 
   async function checkAccess() {
@@ -52,6 +53,19 @@ export default function AlgebraPage() {
 
     setAllowed(!!data);
     setLoading(false);
+  }
+
+  async function loadPdf() {
+    const { data, error } = await supabase.storage
+      .from("courses_pdfs")
+      .createSignedUrl("M1100/chapter04/pdf1.pdf", 3600);
+
+    if (error) {
+      console.error("PDF error:", error);
+      return;
+    }
+
+    setPdfUrl(data.signedUrl);
   }
 
   if (loading) {
@@ -175,6 +189,70 @@ export default function AlgebraPage() {
               ))}
 
             </div>
+
+            {/* PDF Resources */}
+            <div className="mt-14">
+
+              <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+                PDF Resources
+              </p>
+
+              <h2 className="mt-2 text-3xl font-bold">
+                Chapter PDFs
+              </h2>
+
+              <p className="mt-4 max-w-2xl leading-7 text-slate-600">
+                Course documents and chapter materials.
+              </p>
+
+              <div className="mt-8 space-y-6">
+
+                {/* Chapter 4 */}
+                <div className="rounded-2xl border border-slate-200 bg-white p-6">
+
+                  <h3 className="text-xl font-bold">
+                    Chapter 4
+                  </h3>
+
+                  <div className="mt-4 space-y-3">
+
+                    <a
+                      href={pdfUrl || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center justify-between gap-4 rounded-xl border border-slate-200 p-4 transition ${
+                        pdfUrl
+                          ? "hover:border-blue-400 hover:bg-blue-50"
+                          : "cursor-not-allowed opacity-50"
+                      }`}
+                    >
+
+                      <div className="flex items-center gap-3 min-w-0">
+
+                        <span className="text-2xl">
+                          📄
+                        </span>
+
+                        <span className="font-medium text-slate-900 break-all">
+                          pdf1
+                        </span>
+
+                      </div>
+
+                      <span className="shrink-0 text-sm font-semibold text-blue-600">
+                        {pdfUrl ? "Open PDF →" : "Loading..."}
+                      </span>
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
           {/* Sidebar */}
@@ -238,4 +316,3 @@ export default function AlgebraPage() {
     </main>
   );
 }
-
