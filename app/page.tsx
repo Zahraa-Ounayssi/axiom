@@ -21,6 +21,10 @@ export default function Home() {
               About
             </a>
 
+            <a href="#previous-year" className="text-sm font-medium text-slate-600 hover:text-slate-950">
+              previous-year
+            </a>
+
             <a
               href="/login"
               className="rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
